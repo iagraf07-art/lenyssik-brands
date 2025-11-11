@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LenaTokhtamysh brand - сумки ручной работы</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #8b7355;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #d4af37;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #8b7355;
+        }
+        
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #d4af37;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #b8941f;
+        }
+        
+        /* О бренде */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #8b7355;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Наши работы */
+        .collections {
+            padding: 80px 0;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .collection-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .collection-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .collection-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .collection-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .collection-item:hover .collection-img img {
+            transform: scale(1.1);
+        }
+        
+        .collection-info {
+            padding: 20px;
+        }
+        
+        .collection-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .collection-info .model {
+            font-weight: 600;
+            color: #8b7355;
+            margin-bottom: 5px;
+        }
+        
+        .collection-info .details {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: #8b7355;
+            font-size: 18px;
+        }
+        
+        /* Преимущества */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Контакты */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #d4af37;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #d4af37;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="#" class="logo">
+                        <div class="logo-img">
+                            <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="50" height="50" fill="#8b7355" rx="10"/>
+                                <text x="25" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#d4af37" text-anchor="middle">LT</text>
+                            </svg>
+                        </div>
+                        LenaTokhtamysh <span>brand</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">О бренде</a></li>
+                        <li><a href="#collections">Наши работы</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Эксклюзивные сумки ручной работы</h1>
+            <p>Каждая сумка LenaTokhtamysh brand создается с любовью и вниманием к деталям. Уникальные модели из натуральных материалов, которые подчеркнут вашу индивидуальность.</p>
+            <a href="#collections" class="btn">Смотреть работы</a>
+        </div>
+    </section>
+
+    <!-- О бренде -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О бренде</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>История создания LenaTokhtamysh brand</h3>
+                    <p>LenaTokhtamysh brand родился из страсти к качественным вещам и стремления создавать не просто аксессуары, а произведения искусства. Каждая сумка создается вручную с использованием только натуральных материалов высшего качества.</p>
+                    <p>Мы верим, что аксессуары должны не только выполнять практическую функцию, но и отражать индивидуальность своего владельца. Поэтому каждая модель в нашей коллекции уникальна и имеет свою историю.</p>
+                    <p>Наши мастера тщательно отбирают материалы, уделяя внимание каждой детали, чтобы создать для вас идеальный аксессуар, который будет служить долгие годы и радовать вас каждый день.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Процесс создания сумок">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наши работы -->
+    <section class="collections" id="collections">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <div class="collection-img">
+                        <img src="primer1.jpeg" alt="Сумка TOTE бордового цвета">
+                    </div>
+                    <div class="collection-info">
+                        <h3>TOTE</h3>
+                        <div class="model">Бордовый / L</div>
+                        <div class="details">Просторная сумка-тоут для повседневного использования</div>
+                        <div class="price">3 500 руб.</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-img">
+                        <img src="primer2.jpeg" alt="Сумка TOTE шоколадного цвета">
+                    </div>
+                    <div class="collection-info">
+                        <h3>TOTE</h3>
+                        <div class="model">Шоколадный / M</div>
+                        <div class="details">Универсальная сумка среднего размера</div>
+                        <div class="price">3 500 руб.</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-img">
+                        <img src="primer3.jpeg" alt="Сумка TOTE сливочного цвета">
+                    </div>
+                    <div class="collection-info">
+                        <h3>TOTE</h3>
+                        <div class="model">Сливочный / L</div>
+                        <div class="details">Элегантная сумка светлого оттенка</div>
+                        <div class="price">3 500 руб.</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-img">
+                        <img src="primer5.jpeg" alt="Клатч персикового цвета">
+                    </div>
+                    <div class="collection-info">
+                        <h3>CLUTCH</h3>
+                        <div class="model">Персиковый / XL</div>
+                        <div class="details">Элегантный клатч для вечерних выходов</div>
+                        <div class="price">4 000 руб.</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-img">
+                        <img src="primer6.jpeg" alt="Клатч шоколадного и мятного цветов">
+                    </div>
+                    <div class="collection-info">
+                        <h3>CLUTCH</h3>
+                        <div class="model">Шоколадный + Мятный / XL</div>
+                        <div class="details">Стильный клатч с комбинацией цветов</div>
+                        <div class="price">4 000 руб.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Ручная работа</h3>
+                    <p>Каждая сумка создается вручную с особым вниманием к деталям</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Натуральные материалы</h3>
+                    <p>Используем только качественную кожу и экологичные материалы</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Уникальный дизайн</h3>
+                    <p>Каждая модель эксклюзивна и отражает индивидуальность владельца</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Долговечность</h3>
+                    <p>Наши сумки служат годами благодаря качественной сборке и материалам</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <p><strong>Адрес:</strong> г. Нальчик</p>
+                    <p><strong>Телефон:</strong> +7 (905) 435-18-02</p>
+                    <p><strong>Email:</strong> info@lenatbrand.ru</p>
+                    <p><strong>Режим работы:</strong> Пн-Пт: 10:00-19:00, Сб-Вс: 11:00-17:00</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/lenyssik_brand?igsh=bW1zamp3ZXMxbHQ=&utm_source=ig_contact_invite" target="_blank">Instagram</a>
+                        <a href="https://t.me/Lenyssik_brand" target="_blank">Telegram</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Оставьте заявку</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>LenaTokhtamysh brand</h3>
+                    <p>Эксклюзивные сумки ручной работы из натуральных материалов. Создаем аксессуары с душой и вниманием к деталям.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul>
+                        <li><a href="#collections">Наши работы</a></li>
+                        <li><a href="#about">О бренде</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат и обмен</a></li>
+                        <li><a href="#">Уход за изделиями</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 LenaTokhtamysh brand. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
